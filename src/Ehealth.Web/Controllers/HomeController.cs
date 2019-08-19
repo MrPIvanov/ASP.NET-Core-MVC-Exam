@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Ehealth.Web.Models;
@@ -10,20 +7,26 @@ namespace Ehealth.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        [HttpGet("/")]
+        public async Task<IActionResult> IndexSlash()
         {
-            return View();
+            return this.Redirect("/Home/Index");
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return this.View();
+        }
+
+        public async Task<IActionResult> Privacy()
+        {
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public async Task<IActionResult> Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

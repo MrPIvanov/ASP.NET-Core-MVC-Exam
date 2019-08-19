@@ -1,17 +1,17 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
+﻿using Ehealth.Data;
+using Ehealth.Data.Seeding;
+using Ehealth.Models;
+using Ehealth.Web.Infrastructure.Extentions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ehealth.Data;
-using Ehealth.Models;
-using System.Linq;
-using Ehealth.Web.Extentions;
-using Ehealth.Data.Seeding;
+using Microsoft.Extensions.Configuration;
+using AutoMapper;
 
 namespace Ehealth.Web
 {
@@ -59,7 +59,7 @@ namespace Ehealth.Web
 
             // services.AddSession();
 
-            // services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup));
 
             // ADD Services here:
             services.AddTransient<EhealthUserRoleSeeder>();

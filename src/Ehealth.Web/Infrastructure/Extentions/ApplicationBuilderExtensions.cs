@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Reflection;
 
-namespace Ehealth.Web.Extentions
+namespace Ehealth.Web.Infrastructure.Extentions
 {
     public static class ApplicationBuilderExtensions
     {
