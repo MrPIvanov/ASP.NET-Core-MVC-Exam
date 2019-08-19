@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Ehealth.Data;
 using Ehealth.Models;
 using System.Linq;
+using Ehealth.Web.Extentions;
+using Ehealth.Data.Seeding;
 
 namespace Ehealth.Web
 {
@@ -60,44 +62,16 @@ namespace Ehealth.Web
             // services.AddAutoMapper(typeof(Startup));
 
             // ADD Services here:
-            // services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<EhealthUserRoleSeeder>();
+            services.AddTransient<EhealthUserSeeder>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
-                using (var context = serviceScope.ServiceProvider.GetRequiredService<EhealthDbContext>())
-                {
-                    context.Database.EnsureCreated();
-
-                    if (!context.Roles.Any())
-                    {
-                        context.Roles.Add(new Role
-                        {
-                            Name = "Root",
-                            NormalizedName = "ROOT"
-                        });
-
-                        context.Roles.Add(new Role
-                        {
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        });
-
-                        context.Roles.Add(new Role
-                        {
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
-
-                        context.SaveChanges();
-                    }
-                }
-            }
-
+            
             if (env.IsDevelopment())
             {
+                app.UseDatabaseSeeding();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }

@@ -4,5 +4,6 @@ namespace Ehealth.Models
 {
     public class User : IdentityUser
     {
+       
     }
 }
