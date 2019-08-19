@@ -7,21 +7,19 @@ namespace Ehealth.Web.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet("/")]
-        public async Task<IActionResult> IndexSlash()
-        {
-            return this.Redirect("/Home/Index");
-        }
-
         public async Task<IActionResult> Index()
         {
             return this.View();
         }
 
-        public async Task<IActionResult> Privacy()
-        {
-            return this.View();
-        }
+
+
+
+
+
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public async Task<IActionResult> Error()

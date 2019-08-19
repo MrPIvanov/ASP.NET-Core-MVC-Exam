@@ -17,6 +17,8 @@ namespace Ehealth.Models
 
         public int Quantity { get; set; }
 
+        public string ProductUrl { get; set; }
+
         public string CategoryId { get; set; }
         public Category Category { get; set; }
 

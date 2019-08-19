@@ -62,8 +62,12 @@ namespace Ehealth.Web
             services.AddAutoMapper(typeof(Startup));
 
             // ADD Services here:
+
+            // Seed Services
             services.AddTransient<EhealthUserRoleSeeder>();
             services.AddTransient<EhealthUserSeeder>();
+            services.AddTransient<EhealthCategorySeeder>();
+            services.AddTransient<EhealthProductSeeder>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
