@@ -15,6 +15,11 @@ namespace Ehealth.Models
 
         public decimal Price { get; set; }
 
+        public int Quantity { get; set; }
+
+        public string CategoryId { get; set; }
+        public Category Category { get; set; }
+
         public ICollection<CartProduct> Carts{ get; set; }
     }
 }
