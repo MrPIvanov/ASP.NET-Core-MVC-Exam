@@ -11,6 +11,12 @@ namespace Ehealth.Services.Contracts
 
         Task<List<AllProductsViewModel>> GetAllNotDeletedOrderByQuantity();
 
+        Task<List<AllProductsViewModel>> GetAllNotDeletedOrderByName();
+
         Task AddQuantityToItem(AddQuantityToProductBindingModel input);
+
+        Task<EditProductBindingModel> GetEditBindingModelProductEntity(string id);
+
+        Task UpdateProduct(EditProductBindingModel input);
     }
 }

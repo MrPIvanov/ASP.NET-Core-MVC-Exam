@@ -1,6 +1,8 @@
-﻿
+﻿@using Ehealth.ViewModels.Product
+@model List<AllProductsViewModel>
+
 @{
-    ViewData["Title"] = "ProductEdit";
+    ViewData["Title"] = "ProductOrder";
 }
 
 <div class="container">
@@ -17,7 +19,33 @@
         </div>
 
         <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>ProductEdit</h2>
+            <h2>Product Edit</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model[i].Name</td>
+                        <td>@Model[i].Price</td>
+                        <td>@Model[i].Quantity</td>
+                        <td>
+                        <td><a asp-area="" asp-controller="Admin" asp-action="ProductSingleEdit" asp-route-id="@Model[i].Id">Edit</a>
+                        <td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

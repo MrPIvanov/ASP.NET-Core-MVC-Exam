@@ -78,7 +78,29 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> ProductEdit()
         {
-            return this.View();
+            var products = await this.productService.GetAllNotDeletedOrderByName();
+
+            return this.View(products);
+        }
+
+        public async Task<IActionResult> ProductSingleEdit(string id)
+        {
+            var product = await this.productService.GetEditBindingModelProductEntity(id);
+
+            return this.View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductSingleEdit(EditProductBindingModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return await this.ProductSingleEdit(input.Id);
+            }
+
+            await this.productService.UpdateProduct(input);
+
+            return this.Redirect("/Admin/ProductEdit");
         }
 
         public async Task<IActionResult> ProductInfo()

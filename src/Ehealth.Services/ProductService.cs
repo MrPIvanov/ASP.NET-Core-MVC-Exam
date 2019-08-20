@@ -49,5 +49,35 @@ namespace Ehealth.Services
 
             return mappedProducts;
         }
+
+        public async Task<List<AllProductsViewModel>> GetAllNotDeletedOrderByName()
+        {
+            var allProducts = this.context.Products.OrderBy(p => p.Name);
+
+            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+
+            return mappedProducts;
+        }
+
+        public async Task<EditProductBindingModel> GetEditBindingModelProductEntity(string id)
+        {
+            var product = await this.context.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+            var mappedProduct = mapper.Map<EditProductBindingModel>(product);
+
+            return mappedProduct;
+        }
+
+        public async Task UpdateProduct(EditProductBindingModel input)
+        {
+            var product = await this.context.Products.FirstOrDefaultAsync(x => x.Id == input.Id);
+
+            product.Name = input.Name;
+            product.Price = input.Price;
+            product.ProductUrl = input.ProductUrl;
+            product.Quantity = input.Quantity;
+
+            await this.context.SaveChangesAsync();
+        }
     }
 }

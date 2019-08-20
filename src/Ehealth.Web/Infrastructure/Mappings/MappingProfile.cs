@@ -14,6 +14,7 @@ namespace Ehealth.Web.Infrastructure.Mappings
 
             CreateMap<Product, AllProductsViewModel>();
 
+            CreateMap<Product, EditProductBindingModel>();
         }
     }
 }
