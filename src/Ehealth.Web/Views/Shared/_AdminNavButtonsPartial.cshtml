@@ -1,0 +1,69 @@
+﻿<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Products
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="ProductAddNew">Product - Add New</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="ProductOrder">Product - Order</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="ProductEdit">Product - Edit</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="ProductInfo">Product - Info</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="ProductDeleted">Product - Deleted</a>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Categories
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="CategoryAddNew">Category - Add New</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="CategoryInfo">Category - Info</a>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Users
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="UserInfo">User - Info</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="UserAdmins">User - Admins</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="UserUpdateRole">User - Update Role</a>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Sales
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="SalesLastMonth">Sales - Last Month</a>
+            <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Admin" asp-action="SalesAll">Sales - All</a>
+
+        </div>
+    </div>
+
+</div>
