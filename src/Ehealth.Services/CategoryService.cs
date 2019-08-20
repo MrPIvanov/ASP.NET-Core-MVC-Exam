@@ -16,9 +16,9 @@ namespace Ehealth.Services
             this.context = context;
         }
 
-        public Task<List<Category>> GetAll()
+        public async Task<List<Category>> GetAll()
         {
-            return this.context.Categories.ToListAsync();
+            return await this.context.Categories.ToListAsync();
         }
 
         public async Task<Category> GetCategoryByName(string categoryName)

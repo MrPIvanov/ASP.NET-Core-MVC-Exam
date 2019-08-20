@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Ehealth.BindingModels\Ehealth.BindingModels.csproj" />
     <ProjectReference Include="..\Ehealth.Data\Ehealth.Data.csproj" />
     <ProjectReference Include="..\Ehealth.Services\Ehealth.Services.csproj" />
+    <ProjectReference Include="..\Ehealth.ViewModels\Ehealth.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,9 @@
-﻿using AutoMapper;
-using Ehealth.BindingModels.Product;
+﻿using Ehealth.BindingModels.Product;
 using Ehealth.Services.Contracts;
+using Ehealth.ViewModels.Product;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Ehealth.Web.Controllers
@@ -11,13 +12,11 @@ namespace Ehealth.Web.Controllers
     public class AdminController : Controller
     {
         private readonly ICategoryService categoryService;
-        private readonly IMapper mapper;
         private readonly IProductService productService;
 
-        public AdminController(ICategoryService categoryService, IMapper mapper, IProductService productService)
+        public AdminController(ICategoryService categoryService, IProductService productService)
         {
             this.categoryService = categoryService;
-            this.mapper = mapper;
             this.productService = productService;
         }
 
@@ -49,12 +48,32 @@ namespace Ehealth.Web.Controllers
 
             await this.productService.AddNewProductFromInputModel(input);
 
-            return this.Redirect("Admin/ProductInfo");
+            return this.Redirect("/Admin/ProductOrder");
         }
 
         public async Task<IActionResult> ProductOrder()
         {
+            var products = await this.productService.GetAllNotDeletedOrderByQuantity();
+
+            return this.View(products);
+        }
+
+        public async Task<IActionResult> ProductSingleOrder()
+        {
             return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductSingleOrder(AddQuantityToProductBindingModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return await this.ProductSingleOrder();
+            }
+
+            await this.productService.AddQuantityToItem(input);
+
+            return this.Redirect("/Admin/ProductOrder");
         }
 
         public async Task<IActionResult> ProductEdit()

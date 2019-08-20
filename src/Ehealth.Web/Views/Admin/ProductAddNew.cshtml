@@ -47,7 +47,6 @@
                 <div class="m-5">
                     <label asp-for="CategoryIdString"></label>
                     <select asp-for="CategoryIdString" class="form-control">
-                        <option value="-1">Please select</option>
                         @foreach (var categoryName in (List<Category>)@ViewData["categoryTypes"])
                         {
                         <option value="@categoryName.Id">@categoryName.Name</option>

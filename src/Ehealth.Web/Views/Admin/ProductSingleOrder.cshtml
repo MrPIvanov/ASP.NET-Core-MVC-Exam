@@ -1,0 +1,37 @@
+﻿@using Ehealth.BindingModels.Product
+@model AddQuantityToProductBindingModel
+
+@{
+    ViewData["Title"] = "ProductSingleOrder";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 p-0">
+
+            <h1 class="my-4">E-Health</h1>
+            <h2 class="my-4">Admin Area</h2>
+
+            <partial name="_AdminNavButtonsPartial" />
+
+        </div>
+
+        <div class="col-lg-9 p-0 pl-3 text-center mt-5">
+            <h2>ProductSingleOrder</h2>
+
+            <form asp-controller="Admin" asp-action="ProductSingleOrder" method="post">
+
+
+                <div class="m-5">
+                    <label asp-for="Quantity"></label>
+                    <input type="number" step="1" asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+
+                <input class="btn btn-primary" type="submit" />
+            </form>
+        </div>
+    </div>
+</div>

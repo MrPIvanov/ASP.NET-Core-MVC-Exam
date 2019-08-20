@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Ehealth.BindingModels.Product;
 using Ehealth.Models;
+using Ehealth.ViewModels.Product;
 
 namespace Ehealth.Web.Infrastructure.Mappings
 {
@@ -10,6 +11,9 @@ namespace Ehealth.Web.Infrastructure.Mappings
         {
             CreateMap<AddNewProductBindingModel, Product>()
                      .ForMember(x => x.CategoryId, opt => opt.MapFrom(x => x.CategoryIdString));
+
+            CreateMap<Product, AllProductsViewModel>();
+
         }
     }
 }
