@@ -10,9 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ehealth.Common\Ehealth.Common.csproj" />
+    <ProjectReference Include="..\Ehealth.BindingModels\Ehealth.BindingModels.csproj" />
     <ProjectReference Include="..\Ehealth.Data\Ehealth.Data.csproj" />
-    <ProjectReference Include="..\Ehealth.Models\Ehealth.Models.csproj" />
   </ItemGroup>
 
 </Project>

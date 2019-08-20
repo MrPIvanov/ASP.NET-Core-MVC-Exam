@@ -5,13 +5,17 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.Web", "Ehealth.Web\Ehealth.Web.csproj", "{5E2FCB4D-3260-49F8-8CA7-A106EFEB7F58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ehealth.Common", "Ehealth.Common\Ehealth.Common.csproj", "{D662CB4C-C74B-4EA8-81CD-FADDDF1B124D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.Common", "Ehealth.Common\Ehealth.Common.csproj", "{D662CB4C-C74B-4EA8-81CD-FADDDF1B124D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ehealth.Services", "Ehealth.Services\Ehealth.Services.csproj", "{FDD0FD51-3806-4495-8940-BFC7565027E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.Services", "Ehealth.Services\Ehealth.Services.csproj", "{FDD0FD51-3806-4495-8940-BFC7565027E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ehealth.Models", "Ehealth.Models\Ehealth.Models.csproj", "{9986AEE0-A1CA-469D-9EC5-961017E5CA10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.Models", "Ehealth.Models\Ehealth.Models.csproj", "{9986AEE0-A1CA-469D-9EC5-961017E5CA10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ehealth.Data", "Ehealth.Data\Ehealth.Data.csproj", "{AD946071-3168-472B-944A-20D8220431BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.Data", "Ehealth.Data\Ehealth.Data.csproj", "{AD946071-3168-472B-944A-20D8220431BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EhealthVIewModels", "EhealthVIewModels\EhealthVIewModels.csproj", "{64756DDD-26D5-4CFD-A17D-58AABFC09F6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ehealth.BindingModels", "Ehealth.BindingModels\Ehealth.BindingModels.csproj", "{51A50116-0D12-4CA7-A85F-983388BF7961}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{AD946071-3168-472B-944A-20D8220431BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD946071-3168-472B-944A-20D8220431BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD946071-3168-472B-944A-20D8220431BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64756DDD-26D5-4CFD-A17D-58AABFC09F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64756DDD-26D5-4CFD-A17D-58AABFC09F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64756DDD-26D5-4CFD-A17D-58AABFC09F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64756DDD-26D5-4CFD-A17D-58AABFC09F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A50116-0D12-4CA7-A85F-983388BF7961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A50116-0D12-4CA7-A85F-983388BF7961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A50116-0D12-4CA7-A85F-983388BF7961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A50116-0D12-4CA7-A85F-983388BF7961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

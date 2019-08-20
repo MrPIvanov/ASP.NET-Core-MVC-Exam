@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using AutoMapper;
+using Ehealth.Services.Contracts;
+using Ehealth.Services;
 
 namespace Ehealth.Web
 {
@@ -68,11 +70,14 @@ namespace Ehealth.Web
             services.AddTransient<EhealthUserSeeder>();
             services.AddTransient<EhealthCategorySeeder>();
             services.AddTransient<EhealthProductSeeder>();
+
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDatabaseSeeding();

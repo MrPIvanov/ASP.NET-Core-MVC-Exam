@@ -2,6 +2,7 @@
 using Ehealth.Models;
 using Ehealth.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Ehealth.Services
@@ -13,6 +14,11 @@ namespace Ehealth.Services
         public CategoryService(EhealthDbContext context)
         {
             this.context = context;
+        }
+
+        public Task<List<Category>> GetAll()
+        {
+            return this.context.Categories.ToListAsync();
         }
 
         public async Task<Category> GetCategoryByName(string categoryName)
