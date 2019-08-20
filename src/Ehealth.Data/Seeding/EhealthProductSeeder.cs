@@ -31,6 +31,7 @@ namespace Ehealth.Data.Seeding
                 Price = 27.90m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/41y1KOcmGrL._AC_SY400_.jpg",
                 Quantity = 4,
+                PurchaseCount = 2
             });
 
             this.context.Products.Add(new Product
@@ -40,6 +41,8 @@ namespace Ehealth.Data.Seeding
                 Price = 37.20m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61-OWP%2BVkoL._SX385_.jpg",
                 Quantity = 2,
+                PurchaseCount = 0,
+                isDeleted = true                
             });
 
             this.context.Products.Add(new Product
@@ -49,6 +52,7 @@ namespace Ehealth.Data.Seeding
                 Price = 7.20m,
                 ProductUrl = "https://m.media-amazon.com/images/I/61ejIcf1HoL._AC_UL320_.jpg",
                 Quantity = 9,
+                PurchaseCount = 7
             });
 
             this.context.Products.Add(new Product
@@ -58,6 +62,7 @@ namespace Ehealth.Data.Seeding
                 Price = 11.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/91fAqnkz9xL._SX385_.jpg",
                 Quantity = 7,
+                PurchaseCount = 1
             });
 
             this.context.Products.Add(new Product
@@ -67,6 +72,7 @@ namespace Ehealth.Data.Seeding
                 Price = 4.50m,
                 ProductUrl = "https://images-eu.ssl-images-amazon.com/images/I/41iOU1AHbOL.jpg",
                 Quantity = 17,
+                PurchaseCount = 22
             });
 
             // Baby Products
@@ -78,6 +84,7 @@ namespace Ehealth.Data.Seeding
                 Price = 3.20m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/519yDsnXzaL._SY450_.jpg",
                 Quantity = 23,
+                PurchaseCount = 6
             });
 
             this.context.Products.Add(new Product
@@ -87,6 +94,7 @@ namespace Ehealth.Data.Seeding
                 Price = 3.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/51XlhRgvh%2BL._SX466_.jpg",
                 Quantity = 4,
+                PurchaseCount = 9
             });
 
             this.context.Products.Add(new Product
@@ -96,6 +104,7 @@ namespace Ehealth.Data.Seeding
                 Price = 21.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/71urkNE6TnL._AC._SR360,460.jpg",
                 Quantity = 0,
+                PurchaseCount = 0
             });
 
             this.context.Products.Add(new Product
@@ -105,6 +114,7 @@ namespace Ehealth.Data.Seeding
                 Price = 34.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61JLvkDAqaL._SY355_.jpg",
                 Quantity = 1,
+                PurchaseCount = 22
             });
 
             // Sun Care
@@ -116,6 +126,7 @@ namespace Ehealth.Data.Seeding
                 Price = 73.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61o5mByBg9L._SY355_.jpg",
                 Quantity = 3,
+                PurchaseCount = 14
             });
 
             this.context.Products.Add(new Product
@@ -125,6 +136,7 @@ namespace Ehealth.Data.Seeding
                 Price = 51.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61yvYJc-3dL._SY355_.jpg",
                 Quantity = 2,
+                PurchaseCount = 4
             });
 
             // Food Supplements
@@ -136,6 +148,7 @@ namespace Ehealth.Data.Seeding
                 Price = 93.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/91XfI1KnzzL._SY355_.jpg",
                 Quantity = 1,
+                PurchaseCount = 0
             });
 
             this.context.Products.Add(new Product
@@ -145,6 +158,7 @@ namespace Ehealth.Data.Seeding
                 Price = 41.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/71OU5n9wJ5L._SY355_.jpg",
                 Quantity = 6,
+                PurchaseCount = 19
             });
 
             this.context.Products.Add(new Product
@@ -154,6 +168,7 @@ namespace Ehealth.Data.Seeding
                 Price = 64.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/41Mho1yf66L._SY355_.jpg",
                 Quantity = 1,
+                PurchaseCount = 28
             });
 
             this.context.Products.Add(new Product
@@ -163,6 +178,7 @@ namespace Ehealth.Data.Seeding
                 Price = 24.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/71pvpR3DPnL._SY355_.jpg",
                 Quantity = 5,
+                PurchaseCount = 0
             });
 
             this.context.Products.Add(new Product
@@ -172,6 +188,7 @@ namespace Ehealth.Data.Seeding
                 Price = 34.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/41GjwWwEuZL._SY355_.jpg",
                 Quantity = 2,
+                PurchaseCount = 10
             });
 
             this.context.Products.Add(new Product
@@ -181,6 +198,7 @@ namespace Ehealth.Data.Seeding
                 Price = 24.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/81nHl0NZCEL._SY355_.jpg",
                 Quantity = 9,
+                PurchaseCount = 22
             });
 
             this.context.Products.Add(new Product
@@ -190,6 +208,7 @@ namespace Ehealth.Data.Seeding
                 Price = 74.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/81cXESAji1L._SY355_.jpg",
                 Quantity = 15,
+                PurchaseCount = 33
             });
 
             // Bio Cosmetics
@@ -201,6 +220,7 @@ namespace Ehealth.Data.Seeding
                 Price = 164.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61ifC6wQPfL._SY450_.jpg",
                 Quantity = 1,
+                PurchaseCount = 21
             });
 
             await this.context.SaveChangesAsync();

@@ -105,12 +105,42 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> ProductInfo()
         {
+            var products = await this.productService.GetAllNotDeletedOrderByPurchaseCount();
+
+            return this.View(products);
+        }
+
+        public async Task<IActionResult> ProductSingleDelete()
+        {
             return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductSingleDelete(string id)
+        {
+            await this.productService.ToggleIsDeletedOnProduct(id);
+
+            return this.Redirect("/Admin/ProductEdit");
         }
 
         public async Task<IActionResult> ProductDeleted()
         {
+            var products = await this.productService.GetAllDeletedOrderByName();
+
+            return this.View(products);
+        }
+
+        public async Task<IActionResult> ProductSingleRestore()
+        {
             return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductSingleRestore(string id)
+        {
+            await this.productService.ToggleIsDeletedOnProduct(id);
+
+            return this.Redirect("/Admin/ProductDeleted");
         }
 
 

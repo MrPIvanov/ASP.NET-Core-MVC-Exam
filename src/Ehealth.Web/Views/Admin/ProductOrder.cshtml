@@ -23,12 +23,13 @@
 
             <table class="table table-striped">
                 <thead>
-                    <tr >
+                    <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">PurchaseCount</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Order</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,8 +40,8 @@
                             <td>@Model[i].Name</td>
                             <td>@Model[i].Price</td>
                             <td>@Model[i].PurchaseCount</td>
-                            <td>@Model[i].Quantity<td>
-                            <td><a asp-area="" asp-controller="Admin" asp-action="ProductSingleOrder" asp-route-id="@Model[i].Id">Order</a><td>
+                            <td>@Model[i].Quantity</td>
+                            <td><a asp-area="" asp-controller="Admin" asp-action="ProductSingleOrder" asp-route-id="@Model[i].Id">Order</a></td>
                         </tr>
                     }
 

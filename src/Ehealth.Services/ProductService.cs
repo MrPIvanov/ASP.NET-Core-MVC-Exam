@@ -43,7 +43,7 @@ namespace Ehealth.Services
 
         public async Task<List<AllProductsViewModel>> GetAllNotDeletedOrderByQuantity()
         {
-            var allProducts = this.context.Products.OrderBy(p => p.Quantity);
+            var allProducts = this.context.Products.Where(p => p.isDeleted == false).OrderBy(p => p.Quantity);
 
             var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
 
@@ -52,7 +52,25 @@ namespace Ehealth.Services
 
         public async Task<List<AllProductsViewModel>> GetAllNotDeletedOrderByName()
         {
-            var allProducts = this.context.Products.OrderBy(p => p.Name);
+            var allProducts = this.context.Products.Where(p => p.isDeleted == false).OrderBy(p => p.Name);
+
+            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+
+            return mappedProducts;
+        }
+
+        public async Task<List<AllProductsViewModel>> GetAllNotDeletedOrderByPurchaseCount()
+        {
+            var allProducts = this.context.Products.Where(p => p.isDeleted == false).OrderByDescending(p => p.PurchaseCount);
+
+            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+
+            return mappedProducts;
+        }
+
+        public async Task<List<AllProductsViewModel>> GetAllDeletedOrderByName()
+        {
+            var allProducts = this.context.Products.Where(p => p.isDeleted == true).OrderBy(p => p.Name);
 
             var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
 
@@ -78,6 +96,17 @@ namespace Ehealth.Services
             product.Quantity = input.Quantity;
 
             await this.context.SaveChangesAsync();
+        }
+
+        public async Task ToggleIsDeletedOnProduct(string id)
+        {
+            var product = await this.context.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+            var currentValue = product.isDeleted;
+
+            product.isDeleted = !currentValue;
+
+            await context.SaveChangesAsync();
         }
     }
 }
