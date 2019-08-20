@@ -2,3 +2,84 @@
     ViewData["Title"] = "Admin Home Page";
 }
 
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 p-0">
+
+            <h1 class="my-4">E-Health</h1>
+            <h2 class="my-4">Admin Area</h2>
+
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Products
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+                        <a href="#" class="list-group-item list-group-item-action">Add New Product</a>
+                        <a href="#" class="list-group-item list-group-item-action">Order Product</a>
+                        <a href="#" class="list-group-item list-group-item-action">Edit Products</a>
+                        <a href="#" class="list-group-item list-group-item-action">Data Products</a>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Categories
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+                        <a href="#" class="list-group-item list-group-item-action">Add New Category</a>
+                        <a href="#" class="list-group-item list-group-item-action">Category Data</a>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Users
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+                        <a href="#" class="list-group-item list-group-item-action">User Info</a>
+                        <a href="#" class="list-group-item list-group-item-action">User Roles</a>
+                        <a href="#" class="list-group-item list-group-item-action">Update Role</a>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Sales
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+
+                        <a href="#" class="list-group-item list-group-item-action">Last Month</a>
+                        <a href="#" class="list-group-item list-group-item-action">All</a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

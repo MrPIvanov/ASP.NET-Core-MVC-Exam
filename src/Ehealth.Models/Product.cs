@@ -19,6 +19,10 @@ namespace Ehealth.Models
 
         public string ProductUrl { get; set; }
 
+        public bool isDeleted { get; set; }
+
+        public int PurchaseCount { get; set; }
+
         public string CategoryId { get; set; }
         public Category Category { get; set; }
 
