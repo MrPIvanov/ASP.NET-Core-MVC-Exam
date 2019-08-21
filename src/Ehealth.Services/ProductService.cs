@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -14,6 +15,13 @@ namespace Ehealth.Services
 {
     public class ProductService : IProductService
     {
+        private const int NumberOfRandomProductsOnHomePage = 9;
+        private const string OrderCriteriaNameAsc = "nameasc";
+        private const string OrderCriteriaNameDesc = "namedesc";
+        private const string OrderCriteriaPriceAsc = "priceasc";
+        private const string OrderCriteriaPriceDesc = "pricedesc";
+        private const string OrderCriteriaMostPopular = "mostpopular";
+
         private readonly EhealthDbContext context;
         private readonly IMapper mapper;
 
@@ -45,7 +53,7 @@ namespace Ehealth.Services
         {
             var allProducts = this.context.Products.Where(p => p.isDeleted == false).OrderBy(p => p.Quantity);
 
-            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+            var mappedProducts = await this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToListAsync();
 
             return mappedProducts;
         }
@@ -54,7 +62,7 @@ namespace Ehealth.Services
         {
             var allProducts = this.context.Products.Where(p => p.isDeleted == false).OrderBy(p => p.Name);
 
-            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+            var mappedProducts = await this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToListAsync();
 
             return mappedProducts;
         }
@@ -63,7 +71,63 @@ namespace Ehealth.Services
         {
             var allProducts = this.context.Products.Where(p => p.isDeleted == false).OrderByDescending(p => p.PurchaseCount);
 
-            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+            var mappedProducts = await this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToListAsync();
+
+            return mappedProducts;
+        }
+
+        public async Task<List<AllProductsViewModel>> GetRandomProductsForLandingPage()
+        {
+            var allProducts = this.context.Products
+                .Where(p => p.isDeleted == false)
+                .OrderByDescending(p => p.PurchaseCount);
+
+            var maxNumberToSkip = allProducts.Count() - NumberOfRandomProductsOnHomePage;
+
+            var mappedProducts = await this.mapper.ProjectTo<AllProductsViewModel>(allProducts)
+                .Skip(new Random().Next(0, maxNumberToSkip))
+                .Take(NumberOfRandomProductsOnHomePage)
+                .ToListAsync();
+
+            return mappedProducts;
+        }
+
+        public async Task<List<AllProductsViewModel>> GetAllProductsByCategoryNameAndSortCriteria(string id, string orderBy)
+        {
+
+            var allProducts = this.context.Products
+                .Where(p => p.isDeleted == false);
+
+            if (id.ToLower() != "all")
+            {
+                allProducts = allProducts.Where(p => p.CategoryId == id);
+            }
+
+            if (!string.IsNullOrEmpty(orderBy))
+            {
+                switch (orderBy.ToLower())
+                {
+                    case OrderCriteriaNameAsc:
+                        allProducts = allProducts.OrderBy(x => x.Name);
+                        break;
+                    case OrderCriteriaNameDesc:
+                        allProducts = allProducts.OrderByDescending(x => x.Name);
+                        break;
+                    case OrderCriteriaMostPopular:
+                        allProducts = allProducts.OrderByDescending(x => x.PurchaseCount);
+                        break;
+                    case OrderCriteriaPriceAsc:
+                        allProducts = allProducts.OrderBy(x => x.Price);
+                        break;
+                    case OrderCriteriaPriceDesc:
+                        allProducts = allProducts.OrderByDescending(x => x.Price);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            var mappedProducts = await this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToListAsync();
 
             return mappedProducts;
         }
@@ -72,7 +136,7 @@ namespace Ehealth.Services
         {
             var allProducts = this.context.Products.Where(p => p.isDeleted == true).OrderBy(p => p.Name);
 
-            var mappedProducts = this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToList();
+            var mappedProducts = await this.mapper.ProjectTo<AllProductsViewModel>(allProducts).ToListAsync();
 
             return mappedProducts;
         }

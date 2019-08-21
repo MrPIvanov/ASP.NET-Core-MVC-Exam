@@ -11,5 +11,7 @@
         public int Quantity { get; set; }
 
         public int PurchaseCount { get; set; }
+
+        public string ProductUrl { get; set; }
     }
 }

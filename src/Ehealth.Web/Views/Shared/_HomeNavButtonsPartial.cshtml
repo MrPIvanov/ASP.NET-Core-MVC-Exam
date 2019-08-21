@@ -1,0 +1,23 @@
+﻿@using  Ehealth.Models
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0  text-center">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    By Category
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse text-center" aria-labelledby="headingOne" data-parent="#accordion">
+
+            @foreach (var categoryName in (List<Category>)@ViewData["categoryTypes"])
+            {
+                <a class="list-group-item list-group-item-action" asp-area="" asp-controller="Category" asp-action="Category" asp-route-id="@categoryName.Id">@categoryName.Name</a>
+            }
+
+        </div>
+    </div>
+
+</div>

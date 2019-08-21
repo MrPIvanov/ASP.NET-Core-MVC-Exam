@@ -1,0 +1,71 @@
+﻿@using Ehealth.ViewModels.Category
+@model CategoryForSortAndFilterViewModel
+
+@{
+    ViewData["Title"] = "Category";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 p-0">
+
+            <h1 class="my-4">E-Health</h1>
+            <div class="list-group">
+
+                <a class="list-group-item p-3 text-center" asp-area="" asp-controller="Category" asp-action="Category" asp-route-id="All">All Products</a>
+
+            </div>
+
+            <partial name="_HomeNavButtonsPartial" />
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9 p-0 pl-3">
+
+            <h1 class="mt-4 mb-3 text-center">@ViewData["categoryName"]</h1>
+
+            <div class="d-flex justify-content-between">
+                <div class="text-black-50 p-2">
+                    @Model.Products.Count Products
+                </div>
+                <div class="dropdown show mb-3">
+                    <a class="btn text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sort By
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" asp-controller="Category" asp-action="Category" asp-route-orderBy="NameAsc">Name Asc.</a>
+                        <a class="dropdown-item" asp-controller="Category" asp-action="Category" asp-route-orderBy="NameDesc">Name Desc.</a>
+                        <a class="dropdown-item" asp-controller="Category" asp-action="Category" asp-route-orderBy="PriceAsc">Price Asc.</a>
+                        <a class="dropdown-item" asp-controller="Category" asp-action="Category" asp-route-orderBy="PriceDesc">Price Desc.</a>
+                        <a class="dropdown-item" asp-controller="Category" asp-action="Category" asp-route-orderBy="MostPopular">Most Popular</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4 text-center">
+                        <div class="card h-100">
+                            <a asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@product.Id"><img class="card-img-top rounded" src="@product.ProductUrl" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@product.Id">@product.Name</a>
+                                </h4>
+                                <h5 class="mt-5">$ @product.Price</h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

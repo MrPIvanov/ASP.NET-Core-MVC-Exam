@@ -1,6 +1,10 @@
-﻿@{
+﻿@using Ehealth.ViewModels.Product
+@model List<AllProductsViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
 
 <div class="container">
 
@@ -10,18 +14,12 @@
 
             <h1 class="my-4">E-Health</h1>
             <div class="list-group">
-                <a href="#" class="list-group-item">All</a>
 
-                @*@foreach (var item in collection)
-                    {
+                <a class="list-group-item p-3 text-center" asp-area="" asp-controller="Home" asp-action="All">All Products</a>
 
-                    }*@
-                <a href="#" class="list-group-item">Bio Products</a>
-                <a href="#" class="list-group-item">Baby Products</a>
-                <a href="#" class="list-group-item">Sun Care</a>
-                <a href="#" class="list-group-item">Food Supplements</a>
-                <a href="#" class="list-group-item">Bio Cosmetics</a>
             </div>
+
+            <partial name="_HomeNavButtonsPartial" />
 
         </div>
         <!-- /.col-lg-3 -->
@@ -36,13 +34,13 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <a href="#"><img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide"></a>
+                        <a class="d-flex justify-content-center" asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@Model[0].Id"><img class="d-block img-fluid" style="height: 500px" src="@Model[0].ProductUrl" alt="First slide"></a>
                     </div>
                     <div class="carousel-item">
-                        <a href="#"><img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide"></a>
+                        <a class="d-flex justify-content-center" asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@Model[1].Id"><img class="d-block img-fluid" style="height: 500px" src="@Model[1].ProductUrl" alt="Second slide"></a>
                     </div>
                     <div class="carousel-item">
-                        <a href="#"><img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide"></a>
+                        <a class="d-flex justify-content-center" asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@Model[2].Id"><img class="d-block img-fluid" style="height: 500px" src="@Model[2].ProductUrl" alt="Third slide"></a>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,109 +55,21 @@
 
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item One</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Two</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                @foreach (var product in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4 text-center">
+                        <div class="card h-100">
+                            <a asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@product.Id"><img class="card-img-top rounded" src="@product.ProductUrl" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a asp-area="" asp-controller="Home" asp-action="SingleProduct" asp-route-id="@product.Id">@product.Name</a>
+                                </h4>
+                                <h5 class="mt-5">$ @product.Price</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Three</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Four</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Five</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Six</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
+                }
             </div>
-            <!-- /.row -->
-
         </div>
-        <!-- /.col-lg-9 -->
-
     </div>
-    <!-- /.row -->
-
 </div>

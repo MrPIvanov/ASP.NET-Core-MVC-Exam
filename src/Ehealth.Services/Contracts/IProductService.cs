@@ -17,6 +17,10 @@ namespace Ehealth.Services.Contracts
 
         Task<List<AllProductsViewModel>> GetAllDeletedOrderByName();
 
+        Task<List<AllProductsViewModel>> GetRandomProductsForLandingPage();
+
+        Task<List<AllProductsViewModel>> GetAllProductsByCategoryNameAndSortCriteria(string id, string orderBy);
+               
         Task ToggleIsDeletedOnProduct(string id);
 
         Task AddQuantityToItem(AddQuantityToProductBindingModel input);
