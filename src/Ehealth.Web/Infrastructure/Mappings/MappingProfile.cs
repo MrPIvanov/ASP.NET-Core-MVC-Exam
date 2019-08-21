@@ -16,6 +16,8 @@ namespace Ehealth.Web.Infrastructure.Mappings
             CreateMap<AddNewProductBindingModel, Product>()
                      .ForMember(x => x.CategoryId, opt => opt.MapFrom(x => x.CategoryIdString));
 
+            CreateMap<Product, SingleProductViewModel>();
+
             CreateMap<Product, AllProductsViewModel>();
 
             CreateMap<Product, EditProductBindingModel>();

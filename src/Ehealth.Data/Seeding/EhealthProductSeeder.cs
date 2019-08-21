@@ -31,7 +31,8 @@ namespace Ehealth.Data.Seeding
                 Price = 27.90m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/41y1KOcmGrL._AC_SY400_.jpg",
                 Quantity = 4,
-                PurchaseCount = 2
+                PurchaseCount = 2,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -41,7 +42,8 @@ namespace Ehealth.Data.Seeding
                 Price = 37.20m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61-OWP%2BVkoL._SX385_.jpg",
                 Quantity = 2,
-                PurchaseCount = 0,
+                PurchaseCount = 2,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 isDeleted = true                
             });
 
@@ -52,7 +54,8 @@ namespace Ehealth.Data.Seeding
                 Price = 7.20m,
                 ProductUrl = "https://m.media-amazon.com/images/I/61ejIcf1HoL._AC_UL320_.jpg",
                 Quantity = 9,
-                PurchaseCount = 7
+                PurchaseCount = 2,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -62,7 +65,8 @@ namespace Ehealth.Data.Seeding
                 Price = 11.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/91fAqnkz9xL._SX385_.jpg",
                 Quantity = 7,
-                PurchaseCount = 1
+                PurchaseCount = 1,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -72,7 +76,8 @@ namespace Ehealth.Data.Seeding
                 Price = 4.50m,
                 ProductUrl = "https://images-eu.ssl-images-amazon.com/images/I/41iOU1AHbOL.jpg",
                 Quantity = 17,
-                PurchaseCount = 22
+                PurchaseCount = 22,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             // Baby Products
@@ -84,7 +89,8 @@ namespace Ehealth.Data.Seeding
                 Price = 3.20m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/519yDsnXzaL._SY450_.jpg",
                 Quantity = 23,
-                PurchaseCount = 6
+                PurchaseCount = 6,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -94,7 +100,8 @@ namespace Ehealth.Data.Seeding
                 Price = 3.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/51XlhRgvh%2BL._SX466_.jpg",
                 Quantity = 4,
-                PurchaseCount = 9
+                PurchaseCount = 9,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -104,7 +111,8 @@ namespace Ehealth.Data.Seeding
                 Price = 21.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/71urkNE6TnL._AC._SR360,460.jpg",
                 Quantity = 0,
-                PurchaseCount = 0
+                PurchaseCount = 0,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -114,7 +122,8 @@ namespace Ehealth.Data.Seeding
                 Price = 34.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61JLvkDAqaL._SY355_.jpg",
                 Quantity = 1,
-                PurchaseCount = 22
+                PurchaseCount = 22,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             // Sun Care
@@ -126,7 +135,8 @@ namespace Ehealth.Data.Seeding
                 Price = 73.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61o5mByBg9L._SY355_.jpg",
                 Quantity = 3,
-                PurchaseCount = 14
+                PurchaseCount = 14,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -136,7 +146,8 @@ namespace Ehealth.Data.Seeding
                 Price = 51.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61yvYJc-3dL._SY355_.jpg",
                 Quantity = 2,
-                PurchaseCount = 4
+                PurchaseCount = 4,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             // Food Supplements
@@ -148,7 +159,8 @@ namespace Ehealth.Data.Seeding
                 Price = 93.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/91XfI1KnzzL._SY355_.jpg",
                 Quantity = 1,
-                PurchaseCount = 0
+                PurchaseCount = 0,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -158,7 +170,8 @@ namespace Ehealth.Data.Seeding
                 Price = 41.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/71OU5n9wJ5L._SY355_.jpg",
                 Quantity = 6,
-                PurchaseCount = 19
+                PurchaseCount = 19,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -168,7 +181,8 @@ namespace Ehealth.Data.Seeding
                 Price = 64.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/41Mho1yf66L._SY355_.jpg",
                 Quantity = 1,
-                PurchaseCount = 28
+                PurchaseCount = 28,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -178,7 +192,8 @@ namespace Ehealth.Data.Seeding
                 Price = 24.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/71pvpR3DPnL._SY355_.jpg",
                 Quantity = 5,
-                PurchaseCount = 0
+                PurchaseCount = 0,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -188,7 +203,8 @@ namespace Ehealth.Data.Seeding
                 Price = 34.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/41GjwWwEuZL._SY355_.jpg",
                 Quantity = 2,
-                PurchaseCount = 10
+                PurchaseCount = 10,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -198,7 +214,8 @@ namespace Ehealth.Data.Seeding
                 Price = 24.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/81nHl0NZCEL._SY355_.jpg",
                 Quantity = 9,
-                PurchaseCount = 22
+                PurchaseCount = 22,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             this.context.Products.Add(new Product
@@ -208,7 +225,8 @@ namespace Ehealth.Data.Seeding
                 Price = 74.10m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/81cXESAji1L._SY355_.jpg",
                 Quantity = 15,
-                PurchaseCount = 33
+                PurchaseCount = 33,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             // Bio Cosmetics
@@ -220,7 +238,8 @@ namespace Ehealth.Data.Seeding
                 Price = 164.50m,
                 ProductUrl = "https://images-na.ssl-images-amazon.com/images/I/61ifC6wQPfL._SY450_.jpg",
                 Quantity = 1,
-                PurchaseCount = 21
+                PurchaseCount = 21,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             });
 
             await this.context.SaveChangesAsync();

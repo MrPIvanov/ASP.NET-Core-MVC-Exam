@@ -172,5 +172,14 @@ namespace Ehealth.Services
 
             await context.SaveChangesAsync();
         }
+
+        public async Task<SingleProductViewModel> GetSingleProductViewModelById(string id)
+        {
+            var product = await this.context.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+            var mappedProduct = mapper.Map<SingleProductViewModel>(product);
+
+            return mappedProduct;
+        }
     }
 }

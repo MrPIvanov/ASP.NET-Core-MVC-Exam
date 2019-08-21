@@ -1,6 +1,5 @@
 ﻿using Ehealth.Services.Contracts;
 using Ehealth.ViewModels.Category;
-using Ehealth.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +16,7 @@ namespace Ehealth.Web.Controllers
             this.productService = productService;
             this.categoryService = categoryService;
         }
-    
+
         [Route("/Category/{id}")]
         public async Task<IActionResult> Category(string id, string orderBy)
         {
@@ -38,12 +37,5 @@ namespace Ehealth.Web.Controllers
 
             return this.View(new CategoryForSortAndFilterViewModel { Id = id, Products = products });
         }
-
-        //public async Task<IActionResult> All()
-        //{
-        //    this.productService.getall
-
-        //    return this.View();
-        //}
     }
 }

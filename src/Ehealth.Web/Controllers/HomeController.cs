@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Ehealth.Web.Models;
 using Ehealth.Services.Contracts;
 using System.Linq;
+using Ehealth.BindingModels.Product;
 
 namespace Ehealth.Web.Controllers
 {
@@ -30,12 +31,35 @@ namespace Ehealth.Web.Controllers
             return this.View(allProducts);
         }
 
-        public async Task<IActionResult> SingleProduct(string id)
+        public async Task<IActionResult> SingleProduct(string id, int Quant)
         {
-            return this.Content(id);
+            var viewModel = await this.productService.GetSingleProductViewModelById(id);
+
+            var categories = await this.categoryService.GetAll();
+
+            this.ViewData["categoryTypes"] = categories.OrderBy(c => c.Name).ToList();
+
+            viewModel.Quant = Quant;
+
+            return this.View(viewModel);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SingleProduct(BuyProductBindingModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return await this.SingleProduct(model.Id, model.Quant);
+            }
 
+            //TODO Handle Purchase here !!!
+
+
+
+            return this.View(model);
+        }
+
+            
 
 
 

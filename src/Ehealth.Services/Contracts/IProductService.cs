@@ -28,5 +28,8 @@ namespace Ehealth.Services.Contracts
         Task<EditProductBindingModel> GetEditBindingModelProductEntity(string id);
 
         Task UpdateProduct(EditProductBindingModel input);
+
+        Task<SingleProductViewModel> GetSingleProductViewModelById(string id);
+
     }
 }
