@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using Ehealth.BindingModels.Category;
 using Ehealth.BindingModels.Product;
 using Ehealth.Models;
+using Ehealth.ViewModels.Category;
 using Ehealth.ViewModels.Product;
+using System.Linq;
 
 namespace Ehealth.Web.Infrastructure.Mappings
 {
@@ -15,6 +18,13 @@ namespace Ehealth.Web.Infrastructure.Mappings
             CreateMap<Product, AllProductsViewModel>();
 
             CreateMap<Product, EditProductBindingModel>();
+
+            CreateMap<AddNewCategoryBindingModel, Category>();
+
+            CreateMap<Category, AllCategoriesByPurchaseCountViewModel>()
+                .ForMember(x => x.ProductsCount, opt => opt.MapFrom(x => x.Products.Count))
+                .ForMember(x => x.TotalPurchaseCount, opt => opt.MapFrom(x => x.Products.Sum(p => p.PurchaseCount)));
+
         }
     }
 }

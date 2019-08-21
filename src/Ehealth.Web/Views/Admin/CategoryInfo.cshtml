@@ -1,4 +1,6 @@
-﻿
+﻿@using Ehealth.ViewModels.Category
+@model List<AllCategoriesByPurchaseCountViewModel>
+
 @{
     ViewData["Title"] = "CategoryInfo";
 }
@@ -17,7 +19,30 @@
         </div>
 
         <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>CategoryInfo</h2>
+            <h2>Categories Info</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Products Count</th>
+                        <th scope="col">Purchases Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <th scope="row">@(i + 1)</th>
+                            <td>@Model[i].Name</td>
+                            <td>@Model[i].ProductsCount</td>
+                            <td>@Model[i].TotalPurchaseCount</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

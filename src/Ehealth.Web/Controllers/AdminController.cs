@@ -1,4 +1,5 @@
-﻿using Ehealth.BindingModels.Product;
+﻿using Ehealth.BindingModels.Category;
+using Ehealth.BindingModels.Product;
 using Ehealth.Services.Contracts;
 using Ehealth.ViewModels.Product;
 using Microsoft.AspNetCore.Authorization;
@@ -152,9 +153,24 @@ namespace Ehealth.Web.Controllers
             return this.View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CategoryAddNew(AddNewCategoryBindingModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return await this.CategoryAddNew();
+            }
+
+            await this.categoryService.AddNewCategoryByName(input);
+
+            return this.Redirect("/Admin/CategoryInfo");
+        }
+
         public async Task<IActionResult> CategoryInfo()
         {
-            return this.View();
+            var allCategories = await this.categoryService.GetAllByPurchaseCount();
+
+            return this.View(allCategories);
         }
 
 
