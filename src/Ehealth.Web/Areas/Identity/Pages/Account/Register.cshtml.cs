@@ -41,6 +41,10 @@ namespace Ehealth.Web.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name = "Username")]
+            public string Username { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -67,8 +71,14 @@ namespace Ehealth.Web.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email };
+                var user = new User { UserName = Input.Username, Email = Input.Email, PhoneNumber = "0 888 888 888", RegisteredOn = DateTime.UtcNow,  };
+
+                
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                await this._userManager.AddToRoleAsync(user, "User");
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

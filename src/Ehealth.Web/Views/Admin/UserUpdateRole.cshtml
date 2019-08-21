@@ -1,4 +1,6 @@
-﻿
+﻿@using Ehealth.ViewModels.User
+@model AllUsersAndAdminsRoleChangeViewModel
+
 @{
     ViewData["Title"] = "UserUpdateRole";
 }
@@ -17,7 +19,56 @@
         </div>
 
         <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>UserUpdateRole</h2>
+            <h2>Admins</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Demote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Admins.Count; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model.Admins[i].Username</td>
+                        <td>@Model.Admins[i].Email</td>
+                        <td><a asp-area="" asp-controller="Admin" asp-action="UserSingleDemote" asp-route-id="@Model.Admins[i].Id">Demote</a></td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+            <h2 class="mt-5">Users</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Promote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Users.Count; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model.Users[i].Username</td>
+                        <td>@Model.Users[i].Email</td>
+                        <td><a asp-area="" asp-controller="Admin" asp-action="UserSinglePromote" asp-route-id="@Model.Users[i].Id">Promote</a></td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

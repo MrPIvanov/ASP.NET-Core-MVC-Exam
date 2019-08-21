@@ -1,4 +1,6 @@
-﻿
+﻿@using Ehealth.ViewModels.User
+@model List<AllUsersIfnoViewModel>
+
 @{
     ViewData["Title"] = "UserInfo";
 }
@@ -17,7 +19,34 @@
         </div>
 
         <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>UserInfo</h2>
+            <h2>Users Info</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Register On</th>
+                        <th scope="col">Purchase Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model[i].Username</td>
+                        <td>@Model[i].Email</td>
+                        <td>@Model[i].PhoneNumber</td>
+                        <td>@Model[i].RegisteredOn.ToString("dd/MM/yyyy")</td>
+                        <td>@Model[i].PurchaseCount</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

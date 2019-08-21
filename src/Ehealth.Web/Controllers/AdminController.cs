@@ -2,6 +2,7 @@
 using Ehealth.BindingModels.Product;
 using Ehealth.Services.Contracts;
 using Ehealth.ViewModels.Product;
+using Ehealth.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace Ehealth.Web.Controllers
     {
         private readonly ICategoryService categoryService;
         private readonly IProductService productService;
+        private readonly IUserService userService;
 
-        public AdminController(ICategoryService categoryService, IProductService productService)
+        public AdminController(ICategoryService categoryService, IProductService productService, IUserService userService)
         {
             this.categoryService = categoryService;
             this.productService = productService;
+            this.userService = userService;
         }
 
         public async Task<IActionResult> Index()
@@ -179,17 +182,54 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> UserInfo()
         {
-            return this.View();
+            var allUsers = await this.userService.GetAllUsersByName();
+
+            return this.View(allUsers);
         }
 
         public async Task<IActionResult> UserAdmins()
         {
-            return this.View();
+
+            var allAdmins = await this.userService.GetAllAdminsByName();
+
+            return this.View(allAdmins);
         }
 
         public async Task<IActionResult> UserUpdateRole()
         {
+            var model = new AllUsersAndAdminsRoleChangeViewModel
+            {
+                Admins = await this.userService.GetAllAdminsByName(),
+                Users = await this.userService.GetAllUsersByName(),
+            };
+
+            return this.View(model);
+        }
+
+        public async Task<IActionResult> UserSinglePromote()
+        {
             return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserSinglePromote(string id)
+        {
+            await this.userService.PromoteUserToAdmin(id);
+
+            return this.Redirect("/Admin/UserUpdateRole");
+        }
+
+        public async Task<IActionResult> UserSingleDemote()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserSingleDemote(string id)
+        {
+            await this.userService.DemoteAdminToUser(id);
+
+            return this.Redirect("/Admin/UserUpdateRole");
         }
 
 
