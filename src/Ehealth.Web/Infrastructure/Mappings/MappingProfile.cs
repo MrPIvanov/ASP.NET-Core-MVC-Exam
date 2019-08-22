@@ -2,6 +2,7 @@
 using Ehealth.BindingModels.Category;
 using Ehealth.BindingModels.Product;
 using Ehealth.Models;
+using Ehealth.ViewModels.Cart;
 using Ehealth.ViewModels.Category;
 using Ehealth.ViewModels.Product;
 using Ehealth.ViewModels.User;
@@ -21,6 +22,8 @@ namespace Ehealth.Web.Infrastructure.Mappings
             CreateMap<Product, AllProductsViewModel>();
 
             CreateMap<Product, EditProductBindingModel>();
+
+            CreateMap<Product, CartSingleProductViewModel>();
 
             CreateMap<AddNewCategoryBindingModel, Category>();
 

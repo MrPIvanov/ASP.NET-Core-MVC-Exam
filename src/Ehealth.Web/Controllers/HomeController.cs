@@ -15,12 +15,14 @@ namespace Ehealth.Web.Controllers
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
         private readonly UserManager<User> userManager;
+        private readonly ICartService cartService;
 
-        public HomeController(IProductService productService, ICategoryService categoryService, UserManager<User> userManager)
+        public HomeController(IProductService productService, ICategoryService categoryService, UserManager<User> userManager, ICartService cartService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
             this.userManager = userManager;
+            this.cartService = cartService;
         }
 
 
@@ -56,9 +58,16 @@ namespace Ehealth.Web.Controllers
                 return await this.SingleProduct(model.Id, model.Quant);
             }
 
-            //TODO Handle Purchase here !!!
+            var currentUser = await this.userManager.GetUserAsync(this.User);
 
-            return this.View(model);
+            if (currentUser == null)
+            {
+                return this.Redirect("/Identity/Account/Login");
+            }
+
+            await this.cartService.AddProductToUserCart(model, currentUser);
+
+            return this.Redirect("/Cart/Index");
         }
 
             

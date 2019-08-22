@@ -74,6 +74,7 @@ namespace Ehealth.Web
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ICartService, CartService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
