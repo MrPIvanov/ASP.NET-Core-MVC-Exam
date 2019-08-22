@@ -18,7 +18,6 @@ namespace Ehealth.Models
 
         public ICollection<Purchase> PurchaseHistory { get; set; }
 
-        public Cart Cart { get; set; }
-
+        public string CartId { get; set; }
     }
 }

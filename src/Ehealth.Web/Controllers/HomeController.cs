@@ -5,6 +5,8 @@ using Ehealth.Web.Models;
 using Ehealth.Services.Contracts;
 using System.Linq;
 using Ehealth.BindingModels.Product;
+using Microsoft.AspNetCore.Identity;
+using Ehealth.Models;
 
 namespace Ehealth.Web.Controllers
 {
@@ -12,11 +14,13 @@ namespace Ehealth.Web.Controllers
     {
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
+        private readonly UserManager<User> userManager;
 
-        public HomeController(IProductService productService, ICategoryService categoryService)
+        public HomeController(IProductService productService, ICategoryService categoryService, UserManager<User> userManager)
         {
             this.productService = productService;
             this.categoryService = categoryService;
+            this.userManager = userManager;
         }
 
 
@@ -54,8 +58,6 @@ namespace Ehealth.Web.Controllers
 
             //TODO Handle Purchase here !!!
 
-
-
             return this.View(model);
         }
 
@@ -71,7 +73,7 @@ namespace Ehealth.Web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public async Task<IActionResult> Error()
         {
-            return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return await Task.Run(() => this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier }));
         }
     }
 }

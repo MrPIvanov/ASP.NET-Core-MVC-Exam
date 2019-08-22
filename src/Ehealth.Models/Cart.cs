@@ -14,8 +14,6 @@ namespace Ehealth.Models
 
         public string UserId { get; set; }
 
-        public User User { get; set; }
-
         public ICollection<CartProduct> Products { get; set; }
     }
 }

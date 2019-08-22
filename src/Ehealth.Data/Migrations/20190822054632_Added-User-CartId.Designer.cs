@@ -4,14 +4,16 @@ using Ehealth.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ehealth.Data.Migrations
 {
     [DbContext(typeof(EhealthDbContext))]
-    partial class EhealthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190822054632_Added-User-CartId")]
+    partial class AddedUserCartId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,6 +141,8 @@ namespace Ehealth.Data.Migrations
 
                     b.Property<string>("CartId");
 
+                    b.Property<string>("CartId1");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -173,6 +177,8 @@ namespace Ehealth.Data.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CartId1");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -304,6 +310,13 @@ namespace Ehealth.Data.Migrations
                     b.HasOne("Ehealth.Models.User", "User")
                         .WithMany("PurchaseHistory")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Ehealth.Models.User", b =>
+                {
+                    b.HasOne("Ehealth.Models.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

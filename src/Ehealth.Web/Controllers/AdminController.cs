@@ -26,7 +26,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
 
@@ -64,7 +64,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> ProductSingleOrder()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         [HttpPost]
@@ -116,7 +116,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> ProductSingleDelete()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         [HttpPost]
@@ -136,7 +136,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> ProductSingleRestore()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         [HttpPost]
@@ -153,7 +153,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> CategoryAddNew()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         [HttpPost]
@@ -208,7 +208,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> UserSinglePromote()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         [HttpPost]
@@ -221,7 +221,7 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> UserSingleDemote()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         [HttpPost]
@@ -238,12 +238,12 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> SalesLastMonth()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
 
         public async Task<IActionResult> SalesAll()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Ehealth.Data;
 
 namespace Ehealth.Web.Areas.Identity.Pages.Account
 {
@@ -20,17 +21,20 @@ namespace Ehealth.Web.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly EhealthDbContext context;
 
         public RegisterModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            EhealthDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.context = context;
         }
 
         [BindProperty]
@@ -73,11 +77,20 @@ namespace Ehealth.Web.Areas.Identity.Pages.Account
             {
                 var user = new User { UserName = Input.Username, Email = Input.Email, PhoneNumber = "0 888 888 888", RegisteredOn = DateTime.UtcNow,  };
 
-                
-
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 await this._userManager.AddToRoleAsync(user, "User");
+
+                var currentCart = new Cart
+                {
+                    UserId = user.Id,
+                };
+
+                await this.context.Carts.AddAsync(currentCart);
+
+                user.CartId = currentCart.Id;
+
+                await this.context.SaveChangesAsync();
 
                 if (result.Succeeded)
                 {

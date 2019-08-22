@@ -7,7 +7,7 @@ namespace Ehealth.Web.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            return this.View();
+            return await Task.Run(() => this.View());
         }
     }
 }

@@ -7,10 +7,12 @@ namespace Ehealth.Data.Seeding
     public class EhealthUserSeeder : ISeeder
     {
         private readonly UserManager<User> userManager;
+        private readonly EhealthDbContext context;
 
-        public EhealthUserSeeder(UserManager<User> userManager)
+        public EhealthUserSeeder(UserManager<User> userManager, EhealthDbContext context)
         {
             this.userManager = userManager;
+            this.context = context;
         }
 
         public async Task Seed()
@@ -24,6 +26,15 @@ namespace Ehealth.Data.Seeding
             await this.userManager.CreateAsync(rootUser, "123");
             await userManager.AddToRoleAsync(rootUser, "root");
 
+            var rootCart = new Cart
+            {
+                UserId = rootUser.Id,
+            };
+
+            await this.context.Carts.AddAsync(rootCart);
+
+            rootUser.CartId = rootCart.Id;
+
             var admin = new User
             {
                 UserName = "admin",
@@ -33,6 +44,15 @@ namespace Ehealth.Data.Seeding
             await this.userManager.CreateAsync(admin, "123");
             await userManager.AddToRoleAsync(admin, "admin");
 
+            var adminCart = new Cart
+            {
+                UserId = admin.Id,
+            };
+
+            await this.context.Carts.AddAsync(adminCart);
+
+            admin.CartId = adminCart.Id;
+
             var user = new User
             {
                 UserName = "user",
@@ -41,6 +61,17 @@ namespace Ehealth.Data.Seeding
 
             await this.userManager.CreateAsync(user, "123");
             await userManager.AddToRoleAsync(user, "user");
+
+            var userCart = new Cart
+            {
+                UserId = user.Id,
+            };
+
+            await this.context.Carts.AddAsync(userCart);
+
+            user.CartId = userCart.Id;
+
+            await this.context.SaveChangesAsync();
         }
     }
 }
