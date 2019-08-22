@@ -1,0 +1,60 @@
+﻿@using Ehealth.ViewModels.Cart
+@using Ehealth.Models
+@using Ehealth.BindingModels.Purchase
+@model BuyAllPurchaseBindingModel
+
+@{
+    ViewData["Title"] = "BuyAll";
+    var productList = (List<CartSingleProductViewModel>)@ViewData["allProducts"];
+    var currentUser = (User)@ViewData["currentUser"];
+}
+
+<h2 class="text-center m-3">All Products</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < productList.Count; i++)
+        {
+            <tr>
+                <th scope="row">@(i + 1)</th>
+                <td>@productList[i].Name</td>
+                <td>@productList[i].Price</td>
+                <td>@productList[i].PurchasedQuantity</td>
+                <td>@productList[i].TotalPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<hr />
+<h2 class="text-center m-4">Personal Information</h2>
+
+<div class="row d-flex justify-content-between">
+    <h4 class="w-25">Username: @currentUser.UserName</h4>
+    <h4 class="w-25">Email: @currentUser.Email</h4>
+    <h4 class="w-25">Phone: @currentUser.PhoneNumber</h4>
+</div>
+
+<hr />
+<h2 class="text-center m-5 text-primary">Total: $ @productList.Sum(p => p.TotalPrice)</h2>
+
+<form class="text-center" asp-controller="Purchase" asp-action="BuyAll" method="post">
+
+    <div class="form-group m-3">
+        <label asp-for="DeliveryAddress"></label>
+        <input asp-for="DeliveryAddress" class="form-control" />
+        <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+    </div>
+
+
+    <input class="btn btn-success text-center" type="submit" value="Buy Now" />
+</form>

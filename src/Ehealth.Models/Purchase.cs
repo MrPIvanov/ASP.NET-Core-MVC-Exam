@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Ehealth.Models
 {
@@ -9,7 +8,7 @@ namespace Ehealth.Models
 
         public Purchase()
         {
-            this.ProductsBought = new HashSet<Product>();
+            this.Products = new HashSet<PurchaseProduct>();
         }
 
         public string Id { get; set; }
@@ -18,13 +17,13 @@ namespace Ehealth.Models
 
         public string DeliveryAddress { get; set; }
 
-        public decimal TotalPrice => this.ProductsBought.Sum(p => p.Price);
+        public decimal TotalPrice { get; set; }
 
         public string UserId { get; set; }
 
         public User User { get; set; }
 
-        public ICollection<Product> ProductsBought { get; set; }
+        public ICollection<PurchaseProduct> Products { get; set; }
 
     }
 }

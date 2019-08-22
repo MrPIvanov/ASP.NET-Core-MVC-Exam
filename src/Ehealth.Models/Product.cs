@@ -7,6 +7,7 @@ namespace Ehealth.Models
         public Product()
         {
             this.Carts = new HashSet<CartProduct>();
+            this.Purchases = new HashSet<PurchaseProduct>();
         }
 
         public string Id { get; set; }
@@ -29,5 +30,8 @@ namespace Ehealth.Models
         public Category Category { get; set; }
 
         public ICollection<CartProduct> Carts{ get; set; }
+
+        public ICollection<PurchaseProduct> Purchases { get; set; }
+
     }
 }

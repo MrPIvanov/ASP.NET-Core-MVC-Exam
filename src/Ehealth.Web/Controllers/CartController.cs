@@ -36,6 +36,11 @@ namespace Ehealth.Web.Controllers
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
 
+            if (currentUser == null)
+            {
+                return this.Redirect("/Identity/Account/Login");
+            }
+
             await this.cartService.RemoveProductFromUserCart(id, currentUser);
 
             return this.Redirect("/Cart/Index");

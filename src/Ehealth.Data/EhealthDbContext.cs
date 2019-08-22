@@ -16,6 +16,9 @@ namespace Ehealth.Data
 
         public DbSet<CartProduct> CartProducts { get; set; }
 
+        public DbSet<PurchaseProduct> PurchaseProducts { get; set; }
+
+
 
         public EhealthDbContext(DbContextOptions<EhealthDbContext> options)
             : base(options)
@@ -27,6 +30,9 @@ namespace Ehealth.Data
         {
             builder.Entity<CartProduct>()
             .HasKey(cp => new { cp.ProductId, cp.CartId });
+
+            builder.Entity<PurchaseProduct>()
+            .HasKey(cp => new { cp.ProductId, cp.PurchaseId });
 
             base.OnModelCreating(builder);
         }
