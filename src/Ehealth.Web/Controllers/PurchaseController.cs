@@ -1,6 +1,7 @@
 ﻿using Ehealth.BindingModels.Purchase;
 using Ehealth.Models;
 using Ehealth.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -20,14 +21,10 @@ namespace Ehealth.Web.Controllers
             this.purchaseService = purchaseService;
         }
 
+        [Authorize]
         public async Task<IActionResult> BuyAll()
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
-
-            if (currentUser == null)
-            {
-                return this.Redirect("/Identity/Account/Login");
-            }
 
             this.ViewData["currentUser"] = currentUser;
 
@@ -37,6 +34,7 @@ namespace Ehealth.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> BuyAll(BuyAllPurchaseBindingModel model)
         {
             if (!this.ModelState.IsValid)
@@ -45,11 +43,6 @@ namespace Ehealth.Web.Controllers
             }
 
             var currentUser = await this.userManager.GetUserAsync(this.User);
-
-            if (currentUser == null)
-            {
-                return this.Redirect("/Identity/Account/Login");
-            }
 
             var deliveryAddress = model.DeliveryAddress;
 

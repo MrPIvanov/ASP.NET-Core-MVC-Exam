@@ -52,6 +52,7 @@ namespace Ehealth.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> SingleProduct(BuyProductBindingModel model)
         {
             if (!this.ModelState.IsValid)
@@ -60,11 +61,6 @@ namespace Ehealth.Web.Controllers
             }
 
             var currentUser = await this.userManager.GetUserAsync(this.User);
-
-            if (currentUser == null)
-            {
-                return this.Redirect("/Identity/Account/Login");
-            }
 
             await this.cartService.AddProductToUserCart(model, currentUser);
 

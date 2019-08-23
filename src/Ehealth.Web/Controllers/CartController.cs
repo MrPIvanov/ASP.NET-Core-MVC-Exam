@@ -1,5 +1,6 @@
 ﻿using Ehealth.Models;
 using Ehealth.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -17,14 +18,10 @@ namespace Ehealth.Web.Controllers
             this.cartService = cartService;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
-
-            if (currentUser == null)
-            {
-                return this.Redirect("/Identity/Account/Login");
-            }
 
             var currentCartProducts = await this.cartService.GetAllProductsForCurrentUser(currentUser);
 
@@ -32,14 +29,10 @@ namespace Ehealth.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Index(string id)
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
-
-            if (currentUser == null)
-            {
-                return this.Redirect("/Identity/Account/Login");
-            }
 
             await this.cartService.RemoveProductFromUserCart(id, currentUser);
 
