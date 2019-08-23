@@ -14,6 +14,8 @@ namespace Ehealth.Data
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Message> Messages { get; set; }
+
         public DbSet<CartProduct> CartProducts { get; set; }
 
         public DbSet<PurchaseProduct> PurchaseProducts { get; set; }

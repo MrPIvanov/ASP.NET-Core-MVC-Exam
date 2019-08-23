@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using AutoMapper;
 using Ehealth.Services.Contracts;
 using Ehealth.Services;
+using Ehealth.Web.Hubs;
 
 namespace Ehealth.Web
 {
@@ -53,17 +54,11 @@ namespace Ehealth.Web
                 options.Password.RequiredUniqueChars = 1;
             });
 
-            // services.AddMemoryCache();
+            services.AddSignalR();
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            // .AddCookieTempDataProvider();
-
-            // services.AddSession();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAutoMapper(typeof(Startup));
-
-            // ADD Services here:
 
             // Seed Services
             services.AddTransient<EhealthUserRoleSeeder>();
@@ -98,7 +93,12 @@ namespace Ehealth.Web
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-            // app.UseSession();
+
+            app.UseSignalR(
+                routes =>
+                {
+                    routes.MapHub<MessageHub>("/livechat");
+                });
 
             app.UseMvc(routes =>
             {

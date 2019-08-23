@@ -7,6 +7,7 @@ using System.Linq;
 using Ehealth.BindingModels.Product;
 using Microsoft.AspNetCore.Identity;
 using Ehealth.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ehealth.Web.Controllers
 {
@@ -70,14 +71,11 @@ namespace Ehealth.Web.Controllers
             return this.Redirect("/Cart/Index");
         }
 
-            
-
-
-
-
-
-
-
+        [Authorize]
+        public async Task<IActionResult> Messages()
+        {
+            return await Task.Run(() => this.View());
+        }    
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public async Task<IActionResult> Error()
