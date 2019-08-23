@@ -31,5 +31,8 @@ namespace Ehealth.Services.Contracts
 
         Task<SingleProductViewModel> GetSingleProductViewModelById(string id);
 
+        Task<List<SingleProductViewModel>> GetAllPurchasedProductsByPurchaseId(string id);
+
+
     }
 }

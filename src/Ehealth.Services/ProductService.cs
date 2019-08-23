@@ -181,5 +181,15 @@ namespace Ehealth.Services
 
             return mappedProduct;
         }
+
+        public async Task<List<SingleProductViewModel>> GetAllPurchasedProductsByPurchaseId(string id)
+        {
+            var products = await this.context.PurchaseProducts.Where(p => p.PurchaseId == id).Select(p => p.ProductId).ToListAsync();
+
+            var mappedProducts = await mapper.ProjectTo<SingleProductViewModel>
+                (this.context.Products.Where(p => products.Contains(p.Id))).ToListAsync();
+
+            return mappedProducts;
+        }
     }
 }

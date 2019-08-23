@@ -1,4 +1,6 @@
-﻿
+﻿@using Ehealth.ViewModels.Purchase
+@model List<PurchasesInfoViewModel>
+
 @{
     ViewData["Title"] = "SalesAll";
 }
@@ -17,7 +19,32 @@
         </div>
 
         <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>SalesAll</h2>
+            <h2>All Sales</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model[i].UserUsername</td>
+                        <td>@Model[i].DeliveryAddress</td>
+                        <td>@Model[i].PurchaseDate.ToString("dd/MM/yyyy")</td>
+                        <td>@Model[i].TotalPrice</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

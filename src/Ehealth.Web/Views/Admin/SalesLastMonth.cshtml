@@ -1,23 +1,50 @@
-﻿
+﻿@using Ehealth.ViewModels.Purchase
+@model List<PurchasesInfoViewModel>
+
 @{
     ViewData["Title"] = "SalesLastMonth";
 }
 
-<div class="container">
+    <div class="container">
 
-    <div class="row">
+        <div class="row">
 
-        <div class="col-lg-3 p-0">
+            <div class="col-lg-3 p-0">
 
-            <h1 class="my-4">E-Health</h1>
-            <h2 class="my-4">Admin Area</h2>
+                <h1 class="my-4">E-Health</h1>
+                <h2 class="my-4">Admin Area</h2>
 
-            <partial name="_AdminNavButtonsPartial" />
+                <partial name="_AdminNavButtonsPartial" />
 
-        </div>
+            </div>
 
-        <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>SalesLastMonth</h2>
+            <div class="col-lg-9 p-0 pl-3 text-center mt-5">
+                <h2>Last Month Sales</h2>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <th scope="row">@(i + 1)</th>
+                                <td>@Model[i].UserUsername</td>
+                                <td>@Model[i].DeliveryAddress</td>
+                                <td>@Model[i].PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                <td>@Model[i].TotalPrice</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>

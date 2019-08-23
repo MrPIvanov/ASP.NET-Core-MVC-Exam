@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Ehealth.Data;
 using Ehealth.Models;
 using Ehealth.Services.Contracts;
+using Ehealth.ViewModels.Purchase;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ehealth.Services
@@ -12,11 +16,13 @@ namespace Ehealth.Services
     {
         private readonly EhealthDbContext context;
         private readonly ICartService cartService;
+        private readonly IMapper mapper;
 
-        public PurchaseService(EhealthDbContext context, ICartService cartService)
+        public PurchaseService(EhealthDbContext context, ICartService cartService, IMapper mapper)
         {
             this.context = context;
             this.cartService = cartService;
+            this.mapper = mapper;
         }
 
         public async Task CreatePurchaseByUserId(User user, string address)
@@ -54,6 +60,15 @@ namespace Ehealth.Services
                 await this.context.PurchaseProducts.AddAsync(purchaseProduct);
                 await this.context.SaveChangesAsync();
             }
+        }
+
+        public async Task<List<PurchasesInfoViewModel>> GetAllPurchasesInfo()
+        {
+            var allPurchases = this.context.Purchases;
+
+            var mappedPurchases = await this.mapper.ProjectTo<PurchasesInfoViewModel>(allPurchases).ToListAsync();
+
+            return mappedPurchases;
         }
     }
 }

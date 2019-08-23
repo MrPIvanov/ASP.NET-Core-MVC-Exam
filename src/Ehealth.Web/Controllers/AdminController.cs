@@ -1,11 +1,11 @@
 ﻿using Ehealth.BindingModels.Category;
 using Ehealth.BindingModels.Product;
 using Ehealth.Services.Contracts;
-using Ehealth.ViewModels.Product;
 using Ehealth.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Ehealth.Web.Controllers
@@ -16,12 +16,14 @@ namespace Ehealth.Web.Controllers
         private readonly ICategoryService categoryService;
         private readonly IProductService productService;
         private readonly IUserService userService;
+        private readonly IPurchaseService purchaseService;
 
-        public AdminController(ICategoryService categoryService, IProductService productService, IUserService userService)
+        public AdminController(ICategoryService categoryService, IProductService productService, IUserService userService, IPurchaseService purchaseService)
         {
             this.categoryService = categoryService;
             this.productService = productService;
             this.userService = userService;
+            this.purchaseService = purchaseService;
         }
 
         public async Task<IActionResult> Index()
@@ -238,12 +240,23 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> SalesLastMonth()
         {
-            return await Task.Run(() => this.View());
+            var allPurchases = await this.purchaseService.GetAllPurchasesInfo();
+
+            var filteredPurchases = allPurchases
+                .Where(p => p.PurchaseDate > DateTime.UtcNow.AddDays(-30))
+                .OrderByDescending(d => d.PurchaseDate)
+                .ToList();
+
+            return this.View(filteredPurchases);
         }
 
         public async Task<IActionResult> SalesAll()
         {
-            return await Task.Run(() => this.View());
+            var allPurchases = await this.purchaseService.GetAllPurchasesInfo();
+
+            allPurchases = allPurchases.OrderByDescending(d => d.PurchaseDate).ToList();
+
+            return this.View(allPurchases);
         }
     }
 }

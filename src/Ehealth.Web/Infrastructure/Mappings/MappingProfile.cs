@@ -5,6 +5,7 @@ using Ehealth.Models;
 using Ehealth.ViewModels.Cart;
 using Ehealth.ViewModels.Category;
 using Ehealth.ViewModels.Product;
+using Ehealth.ViewModels.Purchase;
 using Ehealth.ViewModels.User;
 using System.Linq;
 
@@ -34,6 +35,7 @@ namespace Ehealth.Web.Infrastructure.Mappings
             CreateMap<User, AllUsersIfnoViewModel>()
                 .ForMember(x => x.PurchaseCount, opt => opt.MapFrom(x => x.PurchaseHistory.Count));
 
+            CreateMap<Purchase, PurchasesInfoViewModel>();
         }
     }
 }
