@@ -28,5 +28,14 @@ namespace Ehealth.Services
 
             return mappedBlogs;
         }
+
+        public async Task<BlogSingleViewModel> GetSingleBlogById(string id)
+        {
+            var blog = await this.context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+
+            var mappedBlog = this.mapper.Map<BlogSingleViewModel>(blog);
+
+            return mappedBlog;
+        }
     }
 }

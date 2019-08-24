@@ -1,7 +1,35 @@
-﻿
+﻿@using Ehealth.ViewModels.Blog
+@model BlogSingleViewModel
+
 @{
     ViewData["Title"] = "SingleBlog";
 }
 
-<h1>SingleBlog</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 m-auto">
+            <h1 class="mt-4">@Model.Title</h1>
 
+            <p class="lead">
+                by
+                <a href="#">@Model.Author</a>
+            </p>
+            <hr>
+
+            <p>Posted on @Model.PublishOn.ToString("dddd, MMMM d, yyyy")</p>
+            <hr>
+
+            <img class="img-fluid rounded" src="@Model.ImageUrl" alt="">
+            <hr>
+
+            <p class="lead">@Model.SubTitle</p>
+
+            <p>@Model.Content</p>
+            <p>@Model.Content</p>
+            <hr>
+            <div class="text-center m-5">
+                <a class="btn btn-sm btn-info" asp-area="Blog" asp-controller="Blog" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,7 +24,9 @@ namespace Ehealth.Web.Areas.Blog.Controllers
         [Area("Blog")]
         public async Task<IActionResult> SingleBlog(string id)
         {
-            return this.View();
+            var currentBlog = await this.blogService.GetSingleBlogById(id);
+
+            return this.View(currentBlog);
         }
     }
 }
