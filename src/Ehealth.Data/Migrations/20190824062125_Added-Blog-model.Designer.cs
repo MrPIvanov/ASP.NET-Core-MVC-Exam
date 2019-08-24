@@ -4,14 +4,16 @@ using Ehealth.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ehealth.Data.Migrations
 {
     [DbContext(typeof(EhealthDbContext))]
-    partial class EhealthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190824062125_Added-Blog-model")]
+    partial class AddedBlogmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,8 +26,6 @@ namespace Ehealth.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Author");
-
                     b.Property<string>("Content");
 
                     b.Property<string>("ImageUrl");
@@ -36,9 +36,13 @@ namespace Ehealth.Data.Migrations
 
                     b.Property<string>("Title");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Blog");
                 });
 
             modelBuilder.Entity("Ehealth.Models.Cart", b =>
@@ -328,6 +332,13 @@ namespace Ehealth.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Ehealth.Models.Blog", b =>
+                {
+                    b.HasOne("Ehealth.Models.User", "User")
+                        .WithMany("Blogs")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Ehealth.Models.CartProduct", b =>

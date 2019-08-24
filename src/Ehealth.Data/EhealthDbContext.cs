@@ -20,6 +20,7 @@ namespace Ehealth.Data
 
         public DbSet<PurchaseProduct> PurchaseProducts { get; set; }
 
+        public DbSet<Blog> Blogs { get; set; }
 
 
         public EhealthDbContext(DbContextOptions<EhealthDbContext> options)

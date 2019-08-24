@@ -65,6 +65,7 @@ namespace Ehealth.Web
             services.AddTransient<EhealthUserSeeder>();
             services.AddTransient<EhealthCategorySeeder>();
             services.AddTransient<EhealthProductSeeder>();
+            services.AddTransient<EhealthBlogSeeder>();
 
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
@@ -72,6 +73,7 @@ namespace Ehealth.Web
             services.AddTransient<ICartService, CartService>();
             services.AddTransient<IPurchaseService, PurchaseService>();
             services.AddTransient<IMessageService, MessageService>();
+            services.AddTransient<IBlogService, BlogService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -105,7 +107,7 @@ namespace Ehealth.Web
             {
                 routes.MapRoute(
                     name: "areaRoute",
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    template: "{area:exists}/{controller=Blog}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",

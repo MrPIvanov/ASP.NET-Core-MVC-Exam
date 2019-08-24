@@ -2,6 +2,7 @@
 using Ehealth.BindingModels.Category;
 using Ehealth.BindingModels.Product;
 using Ehealth.Models;
+using Ehealth.ViewModels.Blog;
 using Ehealth.ViewModels.Cart;
 using Ehealth.ViewModels.Category;
 using Ehealth.ViewModels.Product;
@@ -36,6 +37,9 @@ namespace Ehealth.Web.Infrastructure.Mappings
                 .ForMember(x => x.PurchaseCount, opt => opt.MapFrom(x => x.PurchaseHistory.Count));
 
             CreateMap<Purchase, PurchasesInfoViewModel>();
+
+            CreateMap<Blog, BlogSingleViewModel>();
+
         }
     }
 }

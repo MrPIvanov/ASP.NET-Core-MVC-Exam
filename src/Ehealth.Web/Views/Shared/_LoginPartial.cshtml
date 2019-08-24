@@ -19,7 +19,7 @@
 
         @if (this.User.IsInRole("Admin") || this.User.IsInRole("Root"))
         {
-            <li class="nav-item ml-5">
+            <li class="nav-item ml-3">
                 <a class="nav-link btn btn-link text-dark font-weight-bold" asp-controller="Admin" asp-action="Index" title="Manage">ADMIN Area</a>
             </li>
         }

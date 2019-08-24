@@ -1,5 +1,6 @@
 ﻿using Ehealth.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 
 namespace Ehealth.Data.Seeding
@@ -22,6 +23,7 @@ namespace Ehealth.Data.Seeding
                 UserName = "root",
                 Email = "root@root.com",
                 PhoneNumber = "0 888 888 888",
+                RegisteredOn = DateTime.UtcNow,
             };
 
             await this.userManager.CreateAsync(rootUser, "123");
@@ -41,6 +43,7 @@ namespace Ehealth.Data.Seeding
                 UserName = "admin",
                 Email = "admin@admin.com",
                 PhoneNumber = "0 888 888 888",
+                RegisteredOn = DateTime.UtcNow,
             };
 
             await this.userManager.CreateAsync(admin, "123");
@@ -60,6 +63,7 @@ namespace Ehealth.Data.Seeding
                 UserName = "user",
                 Email = "user@user.com",
                 PhoneNumber = "0 888 888 888",
+                RegisteredOn = DateTime.UtcNow,
             };
 
             await this.userManager.CreateAsync(user, "123");
