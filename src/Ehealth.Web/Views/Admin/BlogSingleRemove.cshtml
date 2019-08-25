@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "UserSingleDemote";
+    ViewData["Title"] = "BlogSingleRemove";
 }
 
 <div class="container">
@@ -17,13 +17,13 @@
         </div>
 
         <div class="col-lg-9 p-0 pl-3 text-center mt-5">
-            <h2>Are you sure you wont to DEMOTE this User?</h2>
+            <h2>Are you sure you wont to REMOVE this Blog?</h2>
 
-            <form asp-controller="Admin" asp-action="UserSingleDemote" method="post">
+            <form asp-controller="Admin" asp-action="BlogSingleRemove" method="post">
                 <input class="btn btn-danger m-5" type="submit" value="YES" />
             </form>
 
-            <a class="btn btn-primary m-5" asp-area="" asp-controller="Admin" asp-action="UserUpdateRole">No - Go Back</a>
+            <a class="btn btn-primary m-5" asp-area="" asp-controller="Admin" asp-action="BlogRemoveRestore">No - Go Back</a>
         </div>
     </div>
 </div>

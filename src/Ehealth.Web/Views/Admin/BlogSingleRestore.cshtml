@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "BlogSingleRestore";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 p-0">
+
+            <h1 class="my-4">E-Health</h1>
+            <h2 class="my-4">Admin Area</h2>
+
+            <partial name="_AdminNavButtonsPartial" />
+
+        </div>
+
+        <div class="col-lg-9 p-0 pl-3 text-center mt-5">
+            <h2>Are you sure you wont to RESTORE this Blog?</h2>
+
+            <form asp-controller="Admin" asp-action="BlogSingleRestore" method="post">
+                <input class="btn btn-success m-5" type="submit" value="YES" />
+            </form>
+
+            <a class="btn btn-primary m-5" asp-area="" asp-controller="Admin" asp-action="BlogRemoveRestore">No - Go Back</a>
+        </div>
+    </div>
+</div>
+

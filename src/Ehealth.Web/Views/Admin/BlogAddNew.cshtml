@@ -1,0 +1,59 @@
+﻿@using Ehealth.BindingModels.Blog
+@model BlogAddNewBingingModel
+
+@{
+    ViewData["Title"] = "BlogAddNew";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 p-0">
+
+            <h1 class="my-4">E-Health</h1>
+            <h2 class="my-4">Admin Area</h2>
+
+            <partial name="_AdminNavButtonsPartial" />
+
+        </div>
+
+        <div class="col-lg-9 p-0 pl-5  text-center mt-5">
+            <h2>Blog New Product</h2>
+            <form asp-controller="Admin" asp-action="BlogAddNew" method="post">
+
+                <div class="form-group m-5">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group m-5">
+                    <label asp-for="SubTitle"></label>
+                    <input asp-for="SubTitle" class="form-control" />
+                    <span asp-validation-for="SubTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group m-5">
+                    <label asp-for="Content"></label>
+                    <textarea asp-for="Content" class="form-control"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+
+                <div class="form-group m-5">
+                    <label asp-for="Author"></label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+
+                <div class="form-group m-5">
+                    <label asp-for="ImageUrl"></label>
+                    <input asp-for="ImageUrl" class="form-control" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+
+                <input class="btn btn-primary" type="submit" />
+            </form>
+        </div>
+    </div>
+</div>

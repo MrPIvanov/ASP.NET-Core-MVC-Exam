@@ -1,4 +1,5 @@
-﻿using Ehealth.BindingModels.Category;
+﻿using Ehealth.BindingModels.Blog;
+using Ehealth.BindingModels.Category;
 using Ehealth.BindingModels.Product;
 using Ehealth.Services.Contracts;
 using Ehealth.ViewModels.User;
@@ -17,13 +18,16 @@ namespace Ehealth.Web.Controllers
         private readonly IProductService productService;
         private readonly IUserService userService;
         private readonly IPurchaseService purchaseService;
+        private readonly IBlogService blogService;
 
-        public AdminController(ICategoryService categoryService, IProductService productService, IUserService userService, IPurchaseService purchaseService)
+        public AdminController(ICategoryService categoryService, IProductService productService,
+            IUserService userService, IPurchaseService purchaseService, IBlogService blogService)
         {
             this.categoryService = categoryService;
             this.productService = productService;
             this.userService = userService;
             this.purchaseService = purchaseService;
+            this.blogService = blogService;
         }
 
         public async Task<IActionResult> Index()
@@ -257,6 +261,60 @@ namespace Ehealth.Web.Controllers
             allPurchases = allPurchases.OrderByDescending(d => d.PurchaseDate).ToList();
 
             return this.View(allPurchases);
+        }
+
+        // BLOGS
+
+
+        public async Task<IActionResult> BlogAddNew()
+        {
+            return await Task.Run(() => this.View());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BlogAddNew(BlogAddNewBingingModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return await this.BlogAddNew();
+            }
+
+            await this.blogService.AddNewBlog(input);
+
+            return this.Redirect("/Blog");
+        }
+
+        public async Task<IActionResult> BlogRemoveRestore()
+        {
+            var viewModel = await this.blogService.GetAllAvtiveAndRemovedBlogs();
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> BlogSingleRemove()
+        {
+            return await Task.Run(() => this.View());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BlogSingleRemove(string id)
+        {
+            await this.blogService.RemoveBlogFromActive(id);
+
+            return this.Redirect("/Admin/BlogRemoveRestore");
+        }
+
+        public async Task<IActionResult> BlogSingleRestore()
+        {
+            return await Task.Run(() => this.View());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BlogSingleRestore(string id)
+        {
+            await this.blogService.RestoreBlogToActive(id);
+
+            return this.Redirect("/Admin/BlogRemoveRestore");
         }
     }
 }

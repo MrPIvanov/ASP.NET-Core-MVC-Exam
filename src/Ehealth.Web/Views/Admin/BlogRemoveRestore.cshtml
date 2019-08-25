@@ -1,0 +1,78 @@
+﻿@using Ehealth.ViewModels.Blog
+@model RemoveRestoreSingleBlogViewModel
+
+@{
+    ViewData["Title"] = "BlogRemoveRestore";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3 p-0">
+
+            <h1 class="my-4">E-Health</h1>
+            <h2 class="my-4">Admin Area</h2>
+
+            <partial name="_AdminNavButtonsPartial" />
+
+        </div>
+
+        <div class="col-lg-9 p-0 pl-3 text-center mt-5">
+            <h2>Active Blogs</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Publish Date</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Avtive.Count; i++)
+                    {
+                        <tr>
+                            <th scope="row">@(i + 1)</th>
+                            <td>@Model.Avtive[i].Title</td>
+                            <td>@Model.Avtive[i].Author</td>
+                            <td>@Model.Avtive[i].PublishOn.ToString("dd/MM/yyyy")</td>
+                            <td><a asp-area="" asp-controller="Admin" asp-action="BlogSingleRemove" asp-route-id="@Model.Avtive[i].Id">Remove</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+            <h2 class="mt-5">Removed Blogs</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Publish Date</th>
+                        <th scope="col">Restore</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Removed.Count; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model.Removed[i].Title</td>
+                        <td>@Model.Removed[i].Author</td>
+                        <td>@Model.Avtive[i].PublishOn.ToString("dd/MM/yyyy")</td>
+                        <td><a asp-area="" asp-controller="Admin" asp-action="BlogSingleRestore" asp-route-id="@Model.Removed[i].Id">Restore</a></td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

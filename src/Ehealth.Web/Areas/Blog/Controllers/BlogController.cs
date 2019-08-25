@@ -16,7 +16,7 @@ namespace Ehealth.Web.Areas.Blog.Controllers
         [Area("Blog")]
         public async Task<IActionResult> Index()
         {
-            var allBlogs = await this.blogService.GetAllBlogsOrderByDateDesc();
+            var allBlogs = await this.blogService.GetAllNonDeletedBlogsOrderByDateDesc();
 
             return this.View(allBlogs);
         }

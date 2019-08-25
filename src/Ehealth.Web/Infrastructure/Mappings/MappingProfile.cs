@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Ehealth.BindingModels.Blog;
 using Ehealth.BindingModels.Category;
 using Ehealth.BindingModels.Product;
 using Ehealth.Models;
@@ -40,6 +41,7 @@ namespace Ehealth.Web.Infrastructure.Mappings
 
             CreateMap<Blog, BlogSingleViewModel>();
 
+            CreateMap<BlogAddNewBingingModel, Blog>();
         }
     }
 }

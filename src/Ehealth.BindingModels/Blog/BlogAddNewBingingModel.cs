@@ -1,11 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace Ehealth.Models
+namespace Ehealth.BindingModels.Blog
 {
-    public class Blog
+    public class BlogAddNewBingingModel
     {
         public string Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
         public string SubTitle { get; set; }
@@ -14,10 +16,7 @@ namespace Ehealth.Models
 
         public string ImageUrl { get; set; }
 
-        public DateTime PublishOn { get; set; }
-
+        [Required]
         public string Author { get; set; }
-
-        public bool isDeleted { get; set; }
     }
 }
