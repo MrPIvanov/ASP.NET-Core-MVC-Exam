@@ -2,7 +2,6 @@
 using Ehealth.Services.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ehealth.Web.Hubs

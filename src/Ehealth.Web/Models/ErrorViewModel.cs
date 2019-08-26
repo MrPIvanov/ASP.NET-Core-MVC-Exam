@@ -1,5 +1,3 @@
-using System;
-
 namespace Ehealth.Web.Models
 {
     public class ErrorViewModel

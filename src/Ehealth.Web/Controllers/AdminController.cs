@@ -195,7 +195,6 @@ namespace Ehealth.Web.Controllers
 
         public async Task<IActionResult> UserAdmins()
         {
-
             var allAdmins = await this.userService.GetAllAdminsByName();
 
             return this.View(allAdmins);

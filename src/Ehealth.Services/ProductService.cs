@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Ehealth.BindingModels.Product;
 using Ehealth.Data;
 using Ehealth.Models;

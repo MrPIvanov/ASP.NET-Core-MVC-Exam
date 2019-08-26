@@ -35,7 +35,13 @@ namespace Ehealth.Web.Controllers
 
             var products = await this.productService.GetAllProductsByCategoryNameAndSortCriteria(id, orderBy);
 
-            return this.View(new CategoryForSortAndFilterViewModel { Id = id, Products = products });
+            var categoryToReturn = new CategoryForSortAndFilterViewModel
+            {
+                Id = id,
+                Products = products
+            };
+
+            return this.View(categoryToReturn);
         }
     }
 }

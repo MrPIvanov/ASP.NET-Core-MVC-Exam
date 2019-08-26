@@ -75,7 +75,7 @@ namespace Ehealth.Web.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Username, Email = Input.Email, PhoneNumber = "0 888 888 888", RegisteredOn = DateTime.UtcNow,  };
+                var user = new User { UserName = Input.Username, Email = Input.Email, RegisteredOn = DateTime.UtcNow,  };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 

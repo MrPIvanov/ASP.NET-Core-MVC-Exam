@@ -4,6 +4,7 @@ namespace Ehealth.BindingModels.Product
 {
     public class AddQuantityToProductBindingModel
     {
+        [Required]
         public string Id { get; set; }
 
         [Required]

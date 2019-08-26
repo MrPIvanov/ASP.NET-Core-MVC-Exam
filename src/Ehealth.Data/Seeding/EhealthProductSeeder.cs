@@ -1,6 +1,5 @@
 ﻿using Ehealth.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Ehealth.Data.Seeding

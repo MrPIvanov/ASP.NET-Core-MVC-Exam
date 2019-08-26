@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ehealth.Web.Controllers
 {
+    [Authorize]
     public class PurchaseController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -21,7 +22,6 @@ namespace Ehealth.Web.Controllers
             this.purchaseService = purchaseService;
         }
 
-        [Authorize]
         public async Task<IActionResult> BuyAll()
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
@@ -34,7 +34,6 @@ namespace Ehealth.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> BuyAll(BuyAllPurchaseBindingModel model)
         {
             if (!this.ModelState.IsValid)

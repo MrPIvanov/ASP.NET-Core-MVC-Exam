@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ehealth.Web.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -18,7 +19,7 @@ namespace Ehealth.Web.Controllers
             this.cartService = cartService;
         }
 
-        [Authorize]
+
         public async Task<IActionResult> Index()
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
@@ -29,7 +30,6 @@ namespace Ehealth.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Index(string id)
         {
             var currentUser = await this.userManager.GetUserAsync(this.User);
