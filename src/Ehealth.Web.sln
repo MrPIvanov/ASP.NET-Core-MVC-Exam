@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.BindingModels", "Eh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ehealth.ViewModels", "Ehealth.ViewModels\Ehealth.ViewModels.csproj", "{6E305047-3C5D-41DE-9438-8F655268F45B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ehealth.Tests", "Ehealth.Tests\Ehealth.Tests.csproj", "{1FB1B940-3087-4F26-8C84-36E5E46AEDA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{6E305047-3C5D-41DE-9438-8F655268F45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E305047-3C5D-41DE-9438-8F655268F45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E305047-3C5D-41DE-9438-8F655268F45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FB1B940-3087-4F26-8C84-36E5E46AEDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB1B940-3087-4F26-8C84-36E5E46AEDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB1B940-3087-4F26-8C84-36E5E46AEDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB1B940-3087-4F26-8C84-36E5E46AEDA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
