@@ -25,6 +25,8 @@ $("#sendButton").click(function () {
 
     let message = $("#messageInput").val();
 
+    $("#messageInput").val("");
+
     if (message.length > 0) {
         connection.invoke("SendMessage", message);
     }

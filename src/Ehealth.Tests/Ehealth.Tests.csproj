@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.6" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
@@ -18,6 +19,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ehealth.Data\Ehealth.Data.csproj" />
+    <ProjectReference Include="..\Ehealth.Services\Ehealth.Services.csproj" />
+    <ProjectReference Include="..\Ehealth.Web\Ehealth.Web.csproj" />
   </ItemGroup>
 
 </Project>
