@@ -10,9 +10,9 @@ namespace Ehealth.Services.Contracts
 
         Task<List<AllUsersIfnoViewModel>> GetAllAdminsByName();
 
-        Task PromoteUserToAdmin(string id);
+        Task<bool> PromoteUserToAdmin(string id);
 
-        Task DemoteAdminToUser(string id);
+        Task<bool> DemoteAdminToUser(string id);
 
     }
 }

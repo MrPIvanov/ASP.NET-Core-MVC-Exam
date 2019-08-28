@@ -54,22 +54,26 @@ namespace Ehealth.Services
             return mappedUsers;
         }
 
-        public async Task PromoteUserToAdmin(string id)
+        public async Task<bool> PromoteUserToAdmin(string id)
         {
             var currentUser = await this.context.Users.FirstOrDefaultAsync(u => u.Id == id);
 
             await this.userManager.AddToRoleAsync(currentUser, "Admin");
 
             await this.userManager.RemoveFromRoleAsync(currentUser, "User");
+
+            return true;
         }
 
-        public async Task DemoteAdminToUser(string id)
+        public async Task<bool> DemoteAdminToUser(string id)
         {
             var currentAdmin = await this.context.Users.FirstOrDefaultAsync(u => u.Id == id);
 
             await this.userManager.AddToRoleAsync(currentAdmin, "User");
 
             await this.userManager.RemoveFromRoleAsync(currentAdmin, "Admin");
+
+            return true;
         }
     }
 }
